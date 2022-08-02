@@ -1,0 +1,22 @@
+.home-counter-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 480px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 20px;
+    margin: auto;
+}
+
+.switch-buttons-wrapper {
+    display: flex;
+    justify-content: space-around;
+}
+
+.home-counter-clock {
+    color: white;
+    font-size: 52px;
+}
+
+
