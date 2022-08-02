@@ -1,0 +1,22 @@
+div.taskWrapper {
+    max-width: 480px;
+    text-align: center;
+    margin: 0 auto;;
+}
+
+form.taskForm {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 100%;
+    gap: 10px;
+}
+input.taskTitle , textarea#taskDesc , button.addNoteBtn {
+    border: none;
+    padding: 12px;
+}
+button.addNoteBtn {
+    text-align: left;
+    max-width: 150px;
+}
