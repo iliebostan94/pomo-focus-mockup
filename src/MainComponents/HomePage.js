@@ -26,6 +26,7 @@ const HomePage = ( props ) => {
             <HomeCounter changeBgColor={changeBgColor}  />
             <TaskCounter />
             <TaskComponent />
+            <div>teeest</div> 
 
             {/* <input type="text" placeholder={ setUsername } value={ user } onChange={ handleChange }  /> */}
 
