@@ -1,12 +1,20 @@
 import React from 'react'
+import { useState, useEffect } from 'react';
 
-const TaskCounter = () => {
+import HomePage from '../HomePage';
+import HomeCounter from '../HomeCounter/HomeCounter';
+import TaskStyle from '../TaskDirectory/TaskStyle.css';
+
+
+const TaskCounter = (props , taskCounterNotice ) => {
+
+    
     return (
-        <div>
+        <div className='taskCounterWrapper'>
             <div>#1</div>
-            <div>Time to focus!</div>
+            <div>{ props.taskCounterNotice }</div>
         </div>
     )
 }
 
-export default TaskCounter
+export default TaskCounter;

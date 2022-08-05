@@ -2,7 +2,7 @@ import React from 'react';
 
 import HomePageStyle from '../HomePageStyle.css';
 import { useSelector, useDispatch } from 'react-redux'
-import { addMinutes, addHeader , addTime, usernameInput, addUsernameInput } from '../HomeCounter/HomeCounter.reducer';
+import { addMinutes, addHeader , addTime, usernameInput, addUsernameInput } from '../../app/HomeCounter.reducer';
 
 const Login = () => {
 
@@ -21,7 +21,6 @@ const Login = () => {
         // setUsername("New value");
     };
 
-
     return (
         <div className='mainLoginWrapper'>
             <form onSubmit= { handleClick }>
@@ -31,7 +30,7 @@ const Login = () => {
                 <input type="submit" value="Submit" onSubmit= { handleClick } />
             </form>
             <p>Username: { usernameInput }</p>
-        </div>
+        </div> 
     )
 }
 

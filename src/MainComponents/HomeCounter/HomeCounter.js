@@ -4,39 +4,14 @@ import { useState, useEffect, useRef } from 'react';
 import HomeCounterStyle from './HomeCounterStyle.css';
 import HomePage from '../HomePage';
 import { useSelector, useDispatch } from 'react-redux'
-import { setMinutes, setSeconds, setStart, setPaused } from './HomeCounter.reducer';
+import { setMinutes, setSeconds, setStart, setPaused } from '../../app/HomeCounter.reducer';
 
-const HomeCounter = ( props, bgColor, setBgColor, changeBgColor,  ) => {
+const HomeCounter = ( props, bgColor, setBgColor, changeBgColor, changeTaskCounterNotice  ) => {
 
     const [ minutes, setMinutes ] = useState(20);
     const [ seconds, setSeconds ] =  useState(0);
     const [ start, setStart ] =  useState(false);
     const [ paused, setPaused ] = useState(false);
-
-    // const dispatch = useDispatch();
-    // const {
-    //     minutes,
-    //     seconds,
-    //     start,
-    //     paused,
-    // } = useSelector(store => ({
-    //     minutes: store.counter.minutes,
-    //     seconds: store.counter.seconds,
-    //     start:   store.counter.start,
-    //     paused:  store.counter.paused,
-    // }));
-    // console.log(minutes);
-
-    // dispatch(setSeconds(0));
-    // dispatch(setStart(false));
-    // const minutes = dispatch(setMinutes(20));
-    // const seconds = dispatch(setSeconds(0));
-    // const start = dispatch(setStart(false));
-    // const paused = dispatch(setPaused(false));
-    // console.log(minutes);
-    // console.log(seconds);
-    // console.log(paused);
-
 
     useEffect(()=>{
       let myInterval = setInterval(() => {
@@ -66,9 +41,9 @@ const HomeCounter = ( props, bgColor, setBgColor, changeBgColor,  ) => {
     return (
         <div className='home-counter-wrapper' >
                 <div className='switch-buttons-wrapper'>
-                    <button onClick={() => { props.changeBgColor("#fd9c99") ; setTimer(20, 0); } } >Pomodoro</button>
-                    <button onClick={() => { props.changeBgColor("#4c9195") ; setTimer(7, 0);  } } >Short break</button>
-                    <button onClick={() => { props.changeBgColor("#457ca3") ; setTimer(14, 0); } } >Long break</button>
+                    <button onClick={() => { props.changeBgColor("#fd9c99") ; setTimer(20, 0); props.changeTaskCounterNotice("Time to focus!") ; } } >Pomodoro</button>
+                    <button onClick={() => { props.changeBgColor("#4c9195") ; setTimer(7, 0) ; props.changeTaskCounterNotice("Time for a short Break") ; } } >Short break</button>
+                    <button onClick={() => { props.changeBgColor("#457ca3") ; setTimer(14, 0); props.changeTaskCounterNotice("Time for a longer Break") ; } } >Long break</button>
                 </div>
 
                 <div className="counter-start-wrapper">

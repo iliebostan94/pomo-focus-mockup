@@ -7,34 +7,29 @@ import TaskCounter from './TaskDirectory/TaskCounter';
 import TaskComponent from './TaskDirectory/TaskComponent';
 import HomePageStyle from './HomePageStyle.css';
 import { useSelector, useDispatch } from 'react-redux'
-import { addMinutes, addHeader , addTime, usernameInput, addUsernameInput } from './HomeCounter/HomeCounter.reducer';
+import { addMinutes, addHeader , addTime, usernameInput, addUsernameInput } from '../app/HomeCounter.reducer';
 
 
 const HomePage = ( props ) => {
 
     const [bgColor, setBgColor] = useState("#fd9c99");
+    const [taskCounterNotice, setTaskCounterNotice] = useState("Time to focus!");
 
     let changeBgColor = (value) => {
         setBgColor(value);
     };
     
+    let changeTaskCounterNotice = (value) => {
+        setTaskCounterNotice(value);
+    }
 
     return (
         <div className='home-page-wrapper' style={{ backgroundColor: bgColor }} >
 
             <Login />
-            <HomeCounter changeBgColor={changeBgColor}  />
-            <TaskCounter />
+            <HomeCounter changeBgColor={changeBgColor} changeTaskCounterNotice={changeTaskCounterNotice} />
+            <TaskCounter taskCounterNotice={ taskCounterNotice } changeTaskCounterNotice={changeTaskCounterNotice} />
             <TaskComponent />
-            <div>teeest</div> 
-
-            {/* <input type="text" placeholder={ setUsername } value={ user } onChange={ handleChange }  /> */}
-
-            {/* <button onClick={handleClick}>Submit</button> */}
-            {/* <h3 onClick={() => customUsernameGreetings() } > Click here to change header title </h3> */}
-            {/* <h3 onClick={() => dispatch(addUsernameInput("Hello Ilie!"))} > Click here to change header title </h3> */}
-            {/* <h3 onClick={() => dispatch(addHeader("Hello Ilie!"))} > Click here to change header title </h3> */}
-
         </div>
     )
 }

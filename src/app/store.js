@@ -1,6 +1,6 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { CounterReducer } from '../MainComponents/HomeCounter/HomeCounter.reducer';
-import { MiscReducer } from '../MainComponents/HomeCounter/HomeCounter.reducer';
+import { CounterReducer } from '../app/HomeCounter.reducer';
+import { MiscReducer } from '../app/HomeCounter.reducer';
 
 
 const appReducers = combineReducers({

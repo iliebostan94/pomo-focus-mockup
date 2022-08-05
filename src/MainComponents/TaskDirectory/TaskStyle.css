@@ -20,3 +20,9 @@ button.addNoteBtn {
     text-align: left;
     max-width: 150px;
 }
+
+div.taskCounterWrapper {
+    margin: 25px auto;
+    color: white;
+    font-weight: 700;
+}

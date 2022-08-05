@@ -6,18 +6,24 @@ import { useSelector } from 'react-redux'
 
 function App() {
 
-  const {header} = useSelector(state => state.reducer);
   const {usernameInput} = useSelector(state => state.reducer);
 
 
   useEffect( () => {
-    // document.title = header;
     document.title = usernameInput;
   });
 
 
   return (
     <div className="App">
+            <link
+                  rel="stylesheet"
+                  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+            />
+            <link
+                  rel="stylesheet"
+                  href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            />
       <HomePage />
     </div>
   );
