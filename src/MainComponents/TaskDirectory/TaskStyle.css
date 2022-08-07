@@ -1,7 +1,8 @@
 div.taskWrapper {
     max-width: 480px;
     text-align: center;
-    margin: 0 auto;;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 form.taskForm {
@@ -21,8 +22,32 @@ button.addNoteBtn {
     max-width: 150px;
 }
 
+div.tasksUpperBar {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    border-bottom: 2px solid white;
+    margin-bottom: 10px;
+}
+div.tasksUpperBar .tasksUpperBar-title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+div.tasksUpperBar button {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    color: white;
+    margin: auto 0;
+    height: 40px;
+}
+div.tasksUpperBar button:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
 div.taskCounterWrapper {
     margin: 25px auto;
+    max-width: 480px;
     color: white;
     font-weight: 700;
 }
