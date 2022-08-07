@@ -42,17 +42,17 @@ export const MiscReducer = createSlice({
     name: 'time',
     initialState: {
         testTime: 2,
-        header: "teeeest",
+        header: "",
         usernameInput: "",
     },
     reducers: {
         addTime: (state, action) => {
-            state.testTime = action.payload
+            state.testTime = action.payload;
             console.log(action);
         },
         addHeader: (state, action) => {
-            state.header = action.payload
-            console.log(action);
+            state.header = action.payload;
+            // console.log(action);
         },
         addUsernameInput: (state, action) => {
             state.usernameInput = action.payload

@@ -4,13 +4,20 @@ import './App.css';
 import HomePage from './MainComponents/HomePage';
 import { useSelector } from 'react-redux'
 
-function App() {
+function App( props ) {
 
-  const {usernameInput} = useSelector(state => state.reducer);
+  const { usernameInput } = useSelector(state => state.reducer);
+  const [ pullHeaderText, setPullHeaderText ] =  useState("");
+
+  const pullHeader = (data) => {
+    // console.log(data);
+    setPullHeaderText(data);
+  };
 
 
   useEffect( () => {
-    document.title = usernameInput;
+    // document.title = usernameInput;
+    document.title = usernameInput ? usernameInput : pullHeaderText;
   });
 
 
@@ -24,7 +31,7 @@ function App() {
                   rel="stylesheet"
                   href="https://fonts.googleapis.com/icon?family=Material+Icons"
             />
-      <HomePage />
+      <HomePage universalHeaderTitle={ pullHeader }  />
     </div>
   );
 }

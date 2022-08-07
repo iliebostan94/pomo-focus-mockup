@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Login from './AppHeader/Login';
 import HomeCounter from './HomeCounter/HomeCounter';
@@ -22,6 +22,7 @@ const HomePage = ( props ) => {
     let changeTaskCounterNotice = (value) => {
         setTaskCounterNotice(value);
     }
+    props.universalHeaderTitle(taskCounterNotice);
 
     return (
         <div className='home-page-wrapper' style={{ backgroundColor: bgColor }} >
