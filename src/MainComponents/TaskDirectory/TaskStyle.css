@@ -51,3 +51,112 @@ div.taskCounterWrapper {
     color: white;
     font-weight: 700;
 }
+
+div.createTaskWrapper {
+    margin: 0 auto;
+}
+button.addNewTaskBtn {
+    width: 100%;
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0.8;
+    margin-top: 12px;
+    border: 2px dashed rgba(255, 255, 255, 0.4);
+    font-size: 16px;
+    color: white;
+    font-weight: 600;
+}
+button.addNewTaskBtn:hover {
+    opacity: 1;
+}
+button.addNewTaskBtn svg {
+    margin-right: 5px;
+    margin-bottom: -5px;
+}
+
+div.newTaskFormWrapper {
+    background-color: white;
+    border-radius: 8px;
+    text-align: left;
+    margin-top: 12px;
+    box-shadow: rgb(0 0 0 / 15%) 0px 10px 20px, rgb(0 0 0 / 10%) 0px 3px 6px;
+    animation: 0.1s ease-in-out 0s 1 normal none running expand;
+}
+form.newTaskForm {
+    padding: 10px 20px 0px 20px;
+}
+form.newTaskForm input.taskTitle {
+    border-radius: 4px;
+    font-size: 22px;
+    padding: 10px 0px 10px 10px;
+    box-shadow: none;
+    border: none;
+    color: rgb(85, 85, 85);
+    width: 100%;
+    opacity: 0.5;
+    box-sizing: border-box;
+    font-weight: bold;
+    font-style: italic;
+}
+form.newTaskForm input.taskTitle:focus {
+    opacity: 1;
+}
+div.addNoteBtnWrapper {
+    padding: 8px 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+div.addNoteBtnWrapper button.addNoteBtn {
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0.9;
+    font-size: 14px;
+    background: none;
+    border: none;
+    box-shadow: none;
+    color: rgba(0, 0, 0, 0.4);
+    font-weight: bold;
+    letter-spacing: 0.02em;
+    text-decoration: underline;
+    display: inline-block;
+}
+div.addNoteBtnWrapper textarea.addNoteTextarea {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border-radius: 4px;
+    background-color: rgb(239, 239, 239);
+    border: none;
+    padding: 10px 14px;
+    color: rgb(85, 85, 85);
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 15px;
+    line-height: 1.4em;
+    margin: 8px 0px;
+    display: block;
+}
+
+div.newTaskFormFooter {
+    padding: 14px 20px;
+    text-align: right;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: rgb(239, 239, 239);
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+}
