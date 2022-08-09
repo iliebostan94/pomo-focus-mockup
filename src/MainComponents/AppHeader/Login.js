@@ -9,11 +9,11 @@ const Login = () => {
     const {usernameInput} = useSelector(state => state.reducer);
     const dispatch = useDispatch();
 
-    const handleChange = event => {
-        dispatch(addUsernameInput(event.target.value)); 
+    const handleChange = (event) => {
+        dispatch(addUsernameInput(event.target.value));
     };
 
-    const handleClick = event => {
+    const handleClick = (event) => {
         // alert('A name was submitted: ' + usernameInput );
         dispatch(addUsernameInput("Welcome " + usernameInput ));
         document.querySelector("div.mainLoginWrapper").style.display = "none";

@@ -81,7 +81,7 @@ button.addNewTaskBtn svg {
     margin-bottom: -5px;
 }
 
-div.newTaskFormWrapper {
+div.addTaskFormWrapper {
     background-color: white;
     border-radius: 8px;
     text-align: left;
@@ -89,7 +89,7 @@ div.newTaskFormWrapper {
     box-shadow: rgb(0 0 0 / 15%) 0px 10px 20px, rgb(0 0 0 / 10%) 0px 3px 6px;
     animation: 0.1s ease-in-out 0s 1 normal none running expand;
 }
-form.newTaskForm {
+form.newTaskForm div.newTaskContent {
     padding: 10px 20px 0px 20px;
 }
 form.newTaskForm input.taskTitle {
@@ -162,6 +162,38 @@ div.newTaskFormFooter {
 }
 div.submitNewTaskDiv {
     display: flex;
+}
+
+/* new task component style */
+div.newTaskUnitWrapper {
+    background-color: white;
+    border-radius: 8px;
+    padding: 10px 18px;
+}
+div.newTaskFirstRow {
+    display: flex;
+    padding: 14px 18px;
+}
+div.newTaskFirstRow div.newTaskTitle {
+    margin-left: 20px;
+}
+div.newTaskFirstRow div.newTaskSettings {
+    margin-left: auto;
+    border: 1px solid #80808066;
+    border-radius: 4px;
+    line-height: 1;
+}
+div.newTaskSecondRow {
+    padding: 15px 20px;
+    text-align: left;
+    background-color: bisque;
+    border-radius: 8px;
+    width: 78%;
+    margin: 0 auto;
+}
+div.newTaskSecondRow p {
+    margin: 0;
+    opacity: 0.5;
 }
 
 

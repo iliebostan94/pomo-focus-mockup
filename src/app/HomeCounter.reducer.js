@@ -39,16 +39,17 @@ export const CounterReducer = createSlice({
 }); 
 
 export const MiscReducer = createSlice({
-    name: 'time',
+    name: 'MiscReducer',
     initialState: {
         testTime: 2,
         header: "",
         usernameInput: "",
+        taskTitle: "",
+        taskDescription: "",
     },
     reducers: {
         addTime: (state, action) => {
             state.testTime = action.payload;
-            console.log(action);
         },
         addHeader: (state, action) => {
             state.header = action.payload;
@@ -59,12 +60,20 @@ export const MiscReducer = createSlice({
             // console.log(action);
             // return action;
         },
+        addTaskTitle: (state, action) => {
+            state.taskTitle = action.payload;
+            // console.log(action);
+        },
+        addTaskDescription: (state, action) => {
+            state.taskDescription = action.payload;
+            // console.log(action);
+        },
     }
 });
 
 
 export const { setMinutes, setSeconds, setStart, setPaused, } = CounterReducer.actions;
-export const { addTime, addHeader, usernameInput, addUsernameInput,  } = MiscReducer.actions;
+export const { addTime, addHeader, usernameInput, addUsernameInput, taskTitle, addTaskTitle, taskDescription, addTaskDescription,   } = MiscReducer.actions;
 
 
 // export default CounterReducer.reducer;
