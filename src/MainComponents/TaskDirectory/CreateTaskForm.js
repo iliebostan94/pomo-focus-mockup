@@ -15,6 +15,10 @@ const CreateTaskForm = () => {
     let displayCreateTaskFormFunc = () => {
         setDisplayCreateTaskForm({displayCreateTaskForm: !displayCreateTaskForm});
     }
+    let cancelBtnFunc = () => {
+        setDisplayCreateTaskForm(false);
+        // console.log(displayCreateTaskForm);
+    }
 
     return (
         <div className='createTaskWrapper'>
@@ -34,7 +38,7 @@ const CreateTaskForm = () => {
                         <button>Delete</button>
                     </div>
                     <div className="submitNewTaskDiv">
-                        <button>Cancel</button>
+                        <button style={{  }}  className='cancelNewTaskBtn' onClick={() => cancelBtnFunc() } >Cancel</button>
                         <input type="submit" placeholder='Save' />
                     </div>
                 </div>

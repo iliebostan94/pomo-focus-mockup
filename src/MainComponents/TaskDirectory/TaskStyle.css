@@ -160,3 +160,8 @@ div.newTaskFormFooter {
     -webkit-box-align: center;
     align-items: center;
 }
+div.submitNewTaskDiv {
+    display: flex;
+}
+
+

@@ -14,7 +14,6 @@ function App( props ) {
     setPullHeaderText(data);
   };
 
-
   useEffect( () => {
     // document.title = usernameInput;
     document.title = usernameInput ? usernameInput : pullHeaderText;
