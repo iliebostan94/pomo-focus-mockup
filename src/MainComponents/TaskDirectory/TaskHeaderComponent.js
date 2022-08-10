@@ -27,6 +27,10 @@ const TaskComponent = () => {
       setAnchorEl(null);
     };
 
+    const addTask = (task) => {
+        console.log()
+    }
+
     return (
         <div className='taskWrapper'>
             <div className='tasksUpperBar'>

@@ -44,6 +44,16 @@ const AddTaskForm = () => {
         event.preventDefault();
         console.log("New form submit button sent this: " + taskTitle );
         console.log("Here's task description: " + taskDescription );
+
+        if(!taskTitle) {
+            alert("Please add task title!");
+        };
+
+        // onAdd({taskTitle , taskDescription });
+
+        dispatch(addTaskTitle(""));
+        dispatch(addTaskDescription(""));
+        setDisplayCreateTaskForm(false);
     }
 
     return (

@@ -44,6 +44,16 @@ export const MiscReducer = createSlice({
         testTime: 2,
         header: "",
         usernameInput: "",
+        tasks: [
+            {
+            taskTitle: "Test title 1",
+            taskDescription: "Test desc 1",
+            },
+            {
+            taskTitle: "Test title 2",
+            taskDescription: "Test desc 2",
+            },
+        ],
         taskTitle: "",
         taskDescription: "",
     },
@@ -68,12 +78,16 @@ export const MiscReducer = createSlice({
             state.taskDescription = action.payload;
             // console.log(action);
         },
+        addTasks: (state, action) => {
+            state.tasks = action.payload;
+        },
     }
 });
 
 
 export const { setMinutes, setSeconds, setStart, setPaused, } = CounterReducer.actions;
-export const { addTime, addHeader, usernameInput, addUsernameInput, taskTitle, addTaskTitle, taskDescription, addTaskDescription,   } = MiscReducer.actions;
+export const { addTime, addHeader, usernameInput, addUsernameInput, taskTitle, addTaskTitle, 
+    taskDescription, addTaskDescription, tasks, addTasks , } = MiscReducer.actions;
 
 
 // export default CounterReducer.reducer;
