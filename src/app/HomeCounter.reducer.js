@@ -1,14 +1,8 @@
 import { combineReducers, createSlice } from "@reduxjs/toolkit"
 
-// const initialState = {
-//     minutes: 2,
-//     seconds: 60,
-//     header: "",
-// }
-
 
 export const CounterReducer = createSlice({
-    name: 'counter',
+    name: 'CounterReducer',
     initialState: {
         minutes: 20,
         seconds: 0,
@@ -18,24 +12,21 @@ export const CounterReducer = createSlice({
     reducers: {
         setMinutes: (state, action) => {
             state.minutes = action.payload
-            return action;
         },
         setSeconds: (state, action) => {
             state.seconds = action.payload
             // console.log(action);
-            return action;
         },
         setStart: (state, action) => {
             state.start = action.payload
             // console.log(action);
-            return action;
         },
         setPaused: (state, action) => {
             state.paused = action.payload
             // console.log(action);
-            return action;
-        }
+        },
     },
+    
 }); 
 
 export const MiscReducer = createSlice({
@@ -44,16 +35,6 @@ export const MiscReducer = createSlice({
         testTime: 2,
         header: "",
         usernameInput: "",
-        tasks: [
-            {
-            taskTitle: "Test title 1",
-            taskDescription: "Test desc 1",
-            },
-            {
-            taskTitle: "Test title 2",
-            taskDescription: "Test desc 2",
-            },
-        ],
         taskTitle: "",
         taskDescription: "",
     },
@@ -68,7 +49,6 @@ export const MiscReducer = createSlice({
         addUsernameInput: (state, action) => {
             state.usernameInput = action.payload
             // console.log(action);
-            // return action;
         },
         addTaskTitle: (state, action) => {
             state.taskTitle = action.payload;
@@ -78,16 +58,45 @@ export const MiscReducer = createSlice({
             state.taskDescription = action.payload;
             // console.log(action);
         },
+    },
+});
+
+export const TaskReducer = createSlice({
+    name: 'TaskReducer',
+    initialState: {
+        testingVar : "testtting",
+        tasks: [
+            {
+            // taskID: 0,
+            taskTitle: "Test title 1",
+            taskDescription: "Test desc 1",
+            },
+            {
+            // taskID: 1,
+            taskTitle: "Test title 2",
+            taskDescription: "Test desc 2",
+            },
+        ],
+    },
+    reducers: {
         addTasks: (state, action) => {
             state.tasks = action.payload;
+            console.log(action);
+        },
+        nextTaskId(tasks) {
+            const maxId = tasks.reduce((maxId, task) => Math.max(task.taskID, maxId), -1);
+            return maxId + 1;
         },
     }
 });
 
 
+
+
 export const { setMinutes, setSeconds, setStart, setPaused, } = CounterReducer.actions;
 export const { addTime, addHeader, usernameInput, addUsernameInput, taskTitle, addTaskTitle, 
-    taskDescription, addTaskDescription, tasks, addTasks , } = MiscReducer.actions;
+    taskDescription, addTaskDescription, } = MiscReducer.actions;
+export const { testingVar, tasks, addTasks, nextTaskId,  } = TaskReducer.actions;
 
 
 // export default CounterReducer.reducer;
@@ -96,4 +105,6 @@ export const { addTime, addHeader, usernameInput, addUsernameInput, taskTitle, a
 export default combineReducers({
     CounterReducer,
     MiscReducer,
+    TaskReducer,
 })
+

@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import TaskStyle from './TaskStyle.css';
 
 import { useSelector , useDispatch } from 'react-redux';
-import { combineReducers , taskTitle , taskDescription ,  addTaskTitle , addTaskDescription ,  } from '../../app/HomeCounter.reducer';
+import { combineReducers, taskTitle, taskDescription,  addTaskTitle, addTaskDescription } from '../../app/HomeCounter.reducer';
 
 import ControlPointRoundedIcon from '@mui/icons-material/ControlPointRounded';
 
@@ -17,6 +17,7 @@ const AddTaskForm = () => {
     // const [taskDescription, setTaskDescription] = useState("");
     const {taskTitle} = useSelector(state => state.reducer);
     const {taskDescription} = useSelector(state => state.reducer);
+
     const dispatch = useDispatch();
 
 
@@ -28,7 +29,6 @@ const AddTaskForm = () => {
     }
     let cancelBtnFunc = () => {
         setDisplayCreateTaskForm(false);
-        // console.log(displayCreateTaskForm);
     }
 
     // form controlers
