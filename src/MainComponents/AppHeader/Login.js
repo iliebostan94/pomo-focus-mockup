@@ -1,12 +1,14 @@
 import React from 'react';
 
 import HomePageStyle from '../HomePageStyle.css';
-import { useSelector, useDispatch } from 'react-redux'
-import { addMinutes, addHeader , addTime, usernameInput, addUsernameInput } from '../../app/HomeCounter.reducer';
+import { useSelector, useDispatch } from 'react-redux';
+import { usernameInput, addUsernameInput, } from '../../app/Misc.reducer';
 
 const Login = () => {
 
-    const {usernameInput} = useSelector(state => state.reducer);
+    const {usernameInput} = useSelector(state => state.miscReducer);
+
+    // console.log(usernameInput);
     const dispatch = useDispatch();
 
     const handleChange = (event) => {
@@ -14,10 +16,10 @@ const Login = () => {
     };
 
     const handleClick = (event) => {
+        event.preventDefault();
         // alert('A name was submitted: ' + usernameInput );
         dispatch(addUsernameInput("Welcome " + usernameInput ));
         document.querySelector("div.mainLoginWrapper").style.display = "none";
-        event.preventDefault();
         // setUsername("New value");
     };
 

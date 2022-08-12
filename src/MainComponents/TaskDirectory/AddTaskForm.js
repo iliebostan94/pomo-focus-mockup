@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import TaskStyle from './TaskStyle.css';
 
 import { useSelector , useDispatch } from 'react-redux';
-import { combineReducers, taskTitle, taskDescription,  addTaskTitle, addTaskDescription } from '../../app/HomeCounter.reducer';
+import { addTaskTitle, addTaskDescription, } from '../../app/Misc.reducer';
 
 import ControlPointRoundedIcon from '@mui/icons-material/ControlPointRounded';
 
@@ -13,13 +13,14 @@ const AddTaskForm = () => {
     const [displayTextarea, setDisplayTextarea] = useState(false);
 
     // form constants
-    // const [taskTitle, setTaskTitle] = useState("");
-    // const [taskDescription, setTaskDescription] = useState("");
-    const {taskTitle} = useSelector(state => state.reducer);
-    const {taskDescription} = useSelector(state => state.reducer);
+    const [taskTitle, setTaskTitle] = useState("");
+    const [taskDescription, setTaskDescription] = useState("");
+    // const {taskTitle} = useSelector(state => state.reducer);
+    // const {taskDescription} = useSelector(state => state.reducer);
+    // const {tasks} = useSelector(state => state.reducer);
+
 
     const dispatch = useDispatch();
-
 
     let displayTextareaFunc = () => {
         setDisplayTextarea({displayTextarea: !displayTextarea});
@@ -33,12 +34,14 @@ const AddTaskForm = () => {
 
     // form controlers
     const handleTaskTitleChange = (event) => {
-        // setTaskTitle(event.target.value);
-        dispatch(addTaskTitle(event.target.value));
+        setTaskTitle(event.target.value);
+        // dispatch(addTaskTitle(event.target.value));
+        // dispatch(tasksReducer(event.target.value));
     }
     const handleTaskDescChange = (event) => {
-        // setTaskDescription(event.target.value);
-        dispatch(addTaskDescription(event.target.value));
+        setTaskDescription(event.target.value);
+        // dispatch(addTaskDescription(event.target.value));
+        // dispatch(tasksReducer(event.target.value));
     }
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -51,8 +54,8 @@ const AddTaskForm = () => {
 
         // onAdd({taskTitle , taskDescription });
 
-        dispatch(addTaskTitle(""));
-        dispatch(addTaskDescription(""));
+        addTaskTitle("");
+        addTaskDescription("");
         setDisplayCreateTaskForm(false);
     }
 

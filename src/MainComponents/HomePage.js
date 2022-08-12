@@ -6,8 +6,6 @@ import HomeCounter from './HomeCounter/HomeCounter';
 import TaskCounter from './TaskDirectory/TaskCounter';
 import TaskHeaderComponent from './TaskDirectory/TaskHeaderComponent';
 import HomePageStyle from './HomePageStyle.css';
-import { useSelector, useDispatch } from 'react-redux'
-import { addMinutes, addHeader , addTime, usernameInput, addUsernameInput } from '../app/HomeCounter.reducer';
 
 
 const HomePage = ( props ) => {

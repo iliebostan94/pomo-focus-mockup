@@ -3,8 +3,6 @@ import { useState, useEffect, useRef } from 'react';
 
 import HomeCounterStyle from './HomeCounterStyle.css';
 import HomePage from '../HomePage';
-import { useSelector, useDispatch } from 'react-redux'
-import { setMinutes, setSeconds, setStart, setPaused } from '../../app/HomeCounter.reducer';
 
 const HomeCounter = ( props, bgColor, setBgColor, changeBgColor, changeTaskCounterNotice  ) => {
 

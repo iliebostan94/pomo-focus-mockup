@@ -6,7 +6,8 @@ import { useSelector } from 'react-redux'
 
 function App( props ) {
 
-  const { usernameInput } = useSelector(state => state.reducer);
+  const { usernameInput } = useSelector(state => state.miscReducer);
+
   const [ pullHeaderText, setPullHeaderText ] =  useState("");
 
   const pullHeader = (data) => {

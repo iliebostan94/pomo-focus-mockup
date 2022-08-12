@@ -3,8 +3,7 @@ import { useState, useEffect } from 'react';
 import TaskStyle from './TaskStyle.css';
 
 import { useSelector , useDispatch } from 'react-redux';
-import { combineReducers, taskTitle, taskDescription, addTaskTitle, addTaskDescription,
-         tasks, testingVarm, addTasks,  } from '../../app/HomeCounter.reducer';
+import { tasks, tasksReducer,   } from '../../app/NewTask.reducer';
 
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import MoreVertSharpIcon from '@mui/icons-material/MoreVertSharp';
@@ -12,9 +11,7 @@ import MoreVertSharpIcon from '@mui/icons-material/MoreVertSharp';
 
 const NewTaskUnit = () => {
 
-    const {taskTitle} = useSelector(state => state.reducer);
-    const {taskDescription} = useSelector(state => state.reducer);
-    const {tasks} = useSelector(state => state.reducer);
+    const {tasks} = useSelector(state => state.tasksReducer);
 
     const dispatch = useDispatch();
 
@@ -22,7 +19,7 @@ const NewTaskUnit = () => {
 
         <div>
             {tasks.map((task, index ) => (
-                <React.Fragment key={index} >
+                <React.Fragment key={task.taskID} >
                     <div className='newTaskUnitWrapper' >
                         
                         <div className="newTaskFirstRow">
