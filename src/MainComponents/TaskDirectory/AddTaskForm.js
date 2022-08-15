@@ -3,11 +3,14 @@ import { useState, useEffect } from 'react';
 import TaskStyle from './TaskStyle.css';
 
 import { useSelector , useDispatch } from 'react-redux';
+import { connect } from "react-redux";
 import { addTaskTitle, addTaskDescription, } from '../../app/Misc.reducer';
+import { addTodo } from '../../app/AddTasksSlice';
+
 
 import ControlPointRoundedIcon from '@mui/icons-material/ControlPointRounded';
 
-const AddTaskForm = () => {
+const AddTaskForm = (props) => {
 
     const [displayCreateTaskForm, setDisplayCreateTaskForm] = useState(false);
     const [displayTextarea, setDisplayTextarea] = useState(false);
@@ -15,10 +18,9 @@ const AddTaskForm = () => {
     // form constants
     const [taskTitle, setTaskTitle] = useState("");
     const [taskDescription, setTaskDescription] = useState("");
-    // const {taskTitle} = useSelector(state => state.reducer);
-    // const {taskDescription} = useSelector(state => state.reducer);
+    // const {taskTitle} = useSelector(state => state.miscReducer);
+    // const {taskDescription} = useSelector(state => state.miscReducer);
     // const {tasks} = useSelector(state => state.reducer);
-
 
     const dispatch = useDispatch();
 
@@ -43,19 +45,23 @@ const AddTaskForm = () => {
         // dispatch(addTaskDescription(event.target.value));
         // dispatch(tasksReducer(event.target.value));
     }
+    const checkFormSubmition = (event) => {
+        event.preventDefault();
+        alert("Please add task title!");
+    }
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log("New form submit button sent this: " + taskTitle );
-        console.log("Here's task description: " + taskDescription );
+        props.addTodo(setTaskTitle());
+        props.addTodo(setTaskDescription());
 
-        if(!taskTitle) {
-            alert("Please add task title!");
-        };
-
-        // onAdd({taskTitle , taskDescription });
-
-        addTaskTitle("");
-        addTaskDescription("");
+        // console.log("New form submit button sent this: " + taskTitle );
+        // console.log("Here's task description: " + taskDescription );
+        console.log(props);
+        
+        // dispatch(addTaskTitle(""));
+        // dispatch(addTaskDescription(""));
+        setTaskTitle("");
+        setTaskDescription("");
         setDisplayCreateTaskForm(false);
     }
 
@@ -64,7 +70,7 @@ const AddTaskForm = () => {
             <button style={{display: displayCreateTaskForm ? "none" : "block" }}  className='addNewTaskBtn' onClick={() => displayCreateTaskFormFunc() } ><ControlPointRoundedIcon />Add Task</button>
             <div className="addTaskFormWrapper" style={{display: displayCreateTaskForm ? "block" : "none" }} >
 
-                <form className='newTaskForm' onSubmit={handleSubmit} >
+                <form className='newTaskForm' onSubmit={ taskTitle === "" ? checkFormSubmition : handleSubmit } >
                     <div className="newTaskContent">
                         <input className='taskTitle' name="taskTitle" type="text" value={taskTitle} placeholder="Task title" onChange={handleTaskTitleChange}/>
                         <div className="addNoteBtnWrapper">
@@ -92,4 +98,6 @@ const AddTaskForm = () => {
     )
 }
 
-export default AddTaskForm;
+// export default AddTaskForm;
+export default connect(null, { addTodo })(AddTaskForm);
+

@@ -1,38 +1,29 @@
-const initialState = {
-        tasks: [
-            {
-            taskID: 0,
-            taskTitle: "Test title 1",
-            taskDescription: "Test desc 1",
-            },
-            {
-            taskID: 1,
-            taskTitle: "Test title 2",
-            taskDescription: "Test desc 2",
-            },
-        ],
-    }
-  function nextTaskId(tasks) {
-    const maxId = tasks.reduce((maxId, task) => Math.max(task.taskID, maxId), -1);
-    return maxId + 1;
-  }
-  
-  export default function addTasksReducer(state = initialState, action) {
-    switch (action.type) {
-        case 'tasks/tasksAdded' : {
-            return [
-                ...state,
-                {
-                    taskID: nextTaskId(state.tasks),
-                    taskTitle: action.payload,
-                    taskDescription: action.payload,
-                }
-            ]
-            
-        }
-        default: 
-        return state;
-    }
-  }
+import { createSlice } from '@reduxjs/toolkit';
+
+// const initialState = [];
+
+// const addTodoReducer = createSlice({
+//     name: "todo",
+//     initialState,
+//     reducers: {
+//         addTodos: (state, action) => {
+//             state.push(action.payload);
+//             return state;
+//         }
+//     }
+// });
 
 
+let nextTodoId = 0;
+
+export const addTodo = content => ({
+  type: 'add_todo',
+  payload: {
+    id: ++nextTodoId,
+    content
+  }
+});
+
+
+// export const { addTodos } = addTodoReducer.actions; 
+// export const addTasks = addTodoReducer.reducer;
