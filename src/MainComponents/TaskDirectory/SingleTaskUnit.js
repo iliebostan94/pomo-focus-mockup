@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
@@ -15,7 +16,7 @@ const options = [
 
 const ITEM_HEIGHT = 24;
 
-const SingleTaskUnit = ( props, {taskID, taskTitle, taskDescription, } ) => {
+const SingleTaskUnit = ( props, taskID, taskTitle, taskDescription,  ) => {
 
   // menu functionality
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -30,10 +31,18 @@ const SingleTaskUnit = ( props, {taskID, taskTitle, taskDescription, } ) => {
   // const addTasks = useSelector((state) => state.addTasks);
   // console.log(addTasks);
 
+  const [borderLeft, setBorderLeft] = useState(null);
+  const [taskActive, setTaskActive] = useState(false);
+
+  const toggleBorderLeft = () => {
+    setBorderLeft(borderLeft ? null : "6px solid black");
+    setTaskActive(true);
+  }
+
   return (
 
-            <div className='newTaskUnitWrapper' key={props.taskID} >
-                <div className="newTaskFirstRow">
+            <div className='newTaskUnitWrapper' key={props.taskID} style={{ borderLeft: borderLeft }}  >
+                <div className="newTaskFirstRow" onClick={() => toggleBorderLeft()} >
                     <div className='newTaskIcon'> <CheckCircleIcon /> </div>
                     <div className="newTaskTitle"> {props.taskTitle} </div>
                     <div className="newTaskSettings"> 
