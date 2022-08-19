@@ -1,12 +1,11 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import TaskStyle from './TaskStyle.css';
+import SingleTaskUnit from './SingleTaskUnit';
 
 import { useSelector , useDispatch } from 'react-redux';
-import { connect } from "react-redux";
 import { addTaskTitle, addTaskDescription, } from '../../app/Misc.reducer';
-import { addTodo } from '../../app/AddTasksSlice';
-
+import { addTask } from '../../app/AddTasksSlice';
 
 import ControlPointRoundedIcon from '@mui/icons-material/ControlPointRounded';
 
@@ -16,6 +15,7 @@ const AddTaskForm = (props) => {
     const [displayTextarea, setDisplayTextarea] = useState(false);
 
     // form constants
+    const [value, setValue] = useState();
     const [taskTitle, setTaskTitle] = useState("");
     const [taskDescription, setTaskDescription] = useState("");
     // const {taskTitle} = useSelector(state => state.miscReducer);
@@ -51,18 +51,17 @@ const AddTaskForm = (props) => {
     }
     const handleSubmit = (event) => {
         event.preventDefault();
-        props.addTodo(setTaskTitle());
-        props.addTodo(setTaskDescription());
+        dispatch(
+            addTask({
+            taskTitle: taskTitle,
+            taskDescription: taskDescription,
+            })
+        );
 
+        setTaskTitle("");
+        setTaskDescription("")
         // console.log("New form submit button sent this: " + taskTitle );
         // console.log("Here's task description: " + taskDescription );
-        console.log(props);
-        
-        // dispatch(addTaskTitle(""));
-        // dispatch(addTaskDescription(""));
-        setTaskTitle("");
-        setTaskDescription("");
-        setDisplayCreateTaskForm(false);
     }
 
     return (
@@ -92,12 +91,11 @@ const AddTaskForm = (props) => {
                 </form>
 
             </div>
-            
         </div>
 
     )
 }
 
-// export default AddTaskForm;
-export default connect(null, { addTodo })(AddTaskForm);
+export default AddTaskForm;
+// export default connect(null, { addTodo })(AddTaskForm);
 

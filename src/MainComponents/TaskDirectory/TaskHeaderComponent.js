@@ -1,7 +1,7 @@
 import React from 'react';
 import AddTaskForm from './AddTaskForm';
 import TaskStyle from './TaskStyle.css';
-import NewTaskUnit from './NewTaskUnit';
+import AllTasksList from './AllTasksList';
 
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
@@ -68,7 +68,7 @@ const TaskComponent = () => {
                 </Menu>
             </div>
 
-                <NewTaskUnit />            
+                <AllTasksList />            
                 <AddTaskForm />
         </div>
     )
