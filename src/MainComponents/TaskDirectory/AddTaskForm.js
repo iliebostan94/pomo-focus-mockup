@@ -84,8 +84,8 @@ const AddTaskForm = (props) => {
                             <button>Delete</button>
                         </div>
                         <div className="submitNewTaskDiv">
-                            <button  className='cancelNewTaskBtn' onClick={() => cancelBtnFunc() } >Cancel</button>
-                            <input type="submit" placeholder='Save' />                            
+                            <span  className='cancelNewTaskBtn' onClick={() => cancelBtnFunc() } >Cancel</span>
+                            <input className="formSubmitBtn"  type="submit" placeholder='Save' />                            
                         </div>
                     </div>
                 </form>

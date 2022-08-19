@@ -160,6 +160,47 @@ div.newTaskFormFooter {
     -webkit-box-align: center;
     align-items: center;
 }
+div.newTaskFormFooter div.submitNewTaskDiv span.cancelNewTaskBtn {
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0.9;
+    font-size: 14px;
+    padding: 8px 12px;
+    min-width: 70px;
+    display: inline-block;
+    margin-right: 14px;
+    background: none;
+    border: none;
+    color: rgb(136, 136, 136);
+    font-weight: bold;
+    box-shadow: none;
+}
+div.newTaskFormFooter div.submitNewTaskDiv input.formSubmitBtn { 
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: rgb(0 0 0 / 20%) 0px 2px 2px;
+    color: white;
+    opacity: 0.9;
+    font-size: 14px;
+    padding: 8px 12px;
+    min-width: 70px;
+    border: 2px solid rgb(171, 171, 171);
+    pointer-events: none;
+    display: inline-block;
+    background-color: rgb(171, 171, 171);
+}
+
+
 div.submitNewTaskDiv {
     display: flex;
 }
@@ -184,6 +225,15 @@ div.newTaskFirstRow div.newTaskSettings {
     border-radius: 4px;
     line-height: 1;
 }
+div.newTaskFirstRow div.newTaskSettings button {
+    padding: 3px;
+}
+div.newTaskFirstRow div.newTaskSettings button svg.MuiSvgIcon-fontSizeMedium {
+    width: 20px;
+    height: 20px;
+}
+
+
 div.newTaskSecondRow {
     padding: 15px 20px;
     text-align: left;
