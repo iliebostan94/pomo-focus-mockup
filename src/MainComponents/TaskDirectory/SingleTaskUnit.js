@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { toggleActive } from '../../app/AddTasksSlice';
 
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import IconButton from '@mui/material/IconButton';
@@ -16,7 +18,7 @@ const options = [
 
 const ITEM_HEIGHT = 24;
 
-const SingleTaskUnit = ( props, taskID, taskTitle, taskDescription,  ) => {
+const SingleTaskUnit = ( props, taskID, taskTitle, taskDescription, taskActive  ) => {
 
   // menu functionality
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -28,21 +30,28 @@ const SingleTaskUnit = ( props, taskID, taskTitle, taskDescription,  ) => {
     setAnchorEl(null);
   };
 
-  // const addTasks = useSelector((state) => state.addTasks);
-  // console.log(addTasks);
+  const dispatch = useDispatch();
 
-  const [borderLeft, setBorderLeft] = useState(null);
-  const [taskActive, setTaskActive] = useState(false);
+  const onClickEvents = () => {
+    toggleBorderLeft();
+  }
 
   const toggleBorderLeft = () => {
-    setBorderLeft(borderLeft ? null : "6px solid black");
-    setTaskActive(true);
+    // setBorderLeftStyle(props.taskActive ? " " : "6px solid black");
+    let taskID = props.taskID;
+    let taskActive = props.taskActive;
+        dispatch( 
+          toggleActive( { taskID: taskID , taskActive: !taskActive } )
+        );
+        // console.log(props.taskID);
   }
 
   return (
 
-            <div className='newTaskUnitWrapper' key={props.taskID} style={{ borderLeft: borderLeft }}  >
-                <div className="newTaskFirstRow" onClick={() => toggleBorderLeft()} >
+            // <div className='newTaskUnitWrapper' key={props.taskID} style={{ borderLeft: borderLeft }}  >
+            <div className='newTaskUnitWrapper' key={props.taskID} style={{ borderLeft: props.taskActive ? "6px solid black" : " " }} >
+                {/* <div className="newTaskFirstRow" onClick={() => toggleBorderLeft()} > */}
+                <div className="newTaskFirstRow" onClick={() => onClickEvents() } >
                     <div className='newTaskIcon'> <CheckCircleIcon /> </div>
                     <div className="newTaskTitle"> {props.taskTitle} </div>
                     <div className="newTaskSettings"> 
@@ -83,23 +92,6 @@ const SingleTaskUnit = ( props, taskID, taskTitle, taskDescription,  ) => {
                     <p>{props.taskDescription}</p>
                 </div> 
             </div>
-
-
-      
-      // <React.Fragment>
-      //     { addTasks.map((addTask) => (
-      //         <div className='newTaskUnitWrapper' key={addTask.taskID} >
-      //             <div className="newTaskFirstRow">
-      //                 <div className='newTaskIcon'> <CheckCircleIcon /> </div>
-      //                 <div className="newTaskTitle"> {addTask.taskTitle} </div>
-      //                 <div className="newTaskSettings"> <MoreVertSharpIcon /> </div>
-      //             </div>
-      //             <div className="newTaskSecondRow">
-      //                 <p>{addTask.taskDescription}</p>
-      //             </div> 
-      //         </div>
-      //     ))}
-      // </React.Fragment>
 
   )
 }

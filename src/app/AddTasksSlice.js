@@ -43,6 +43,7 @@ const AddTasksSlice = createSlice({
           const index = state.findIndex( (task) => task.taskID === action.payload.taskID );
           // console.log(index);
           state[index].taskActive = action.payload.taskActive;
+
         },
     },
 

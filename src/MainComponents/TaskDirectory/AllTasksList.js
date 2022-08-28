@@ -4,13 +4,14 @@ import SingleTaskUnit from './SingleTaskUnit';
 
 const AllTasksList = () => {
 
-    const addTasks = useSelector((state) => state.addTasks);
+    const tasksStore = useSelector((state) => state.tasks);
     // console.log(addTasks);
 
     return (
         <div className='all-tasks-wrapper'>
-            { addTasks.map((addTask) => (
-                <SingleTaskUnit key={addTask.taskID} taskID={addTask.taskID} taskTitle={addTask.taskTitle} taskDescription={addTask.taskDescription} />
+            { tasksStore.map((task) => (
+                <SingleTaskUnit key={task.taskID} taskID={task.taskID} taskTitle={task.taskTitle} 
+                taskDescription={task.taskDescription} taskActive={task.taskActive}  />
             ))}
         </div>
 

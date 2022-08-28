@@ -46,7 +46,7 @@ const HomeCounter = ( props, bgColor, setBgColor, changeBgColor, changeTaskCount
 
                 <div className="counter-start-wrapper">
                     <div className="home-counter-clock">
-                      { minutes === 0 && seconds === 0
+                      { minutes === 0 && seconds === 1
                         ? null
                         : <h1> {minutes}:{seconds < 10 ?  `0${seconds}` : seconds}</h1> 
                       }

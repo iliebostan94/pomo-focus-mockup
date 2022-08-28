@@ -5,7 +5,7 @@ import SingleTaskUnit from './SingleTaskUnit';
 
 import { useSelector , useDispatch } from 'react-redux';
 import { addTaskTitle, addTaskDescription, } from '../../app/Misc.reducer';
-import { addTask } from '../../app/AddTasksSlice';
+import  { addTask }  from '../../app/AddTasksSlice';
 
 import ControlPointRoundedIcon from '@mui/icons-material/ControlPointRounded';
 
@@ -55,6 +55,7 @@ const AddTaskForm = (props) => {
             addTask({
             taskTitle: taskTitle,
             taskDescription: taskDescription,
+            taskActive: false,
             })
         );
 
