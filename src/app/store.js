@@ -9,7 +9,7 @@ const appReducers = combineReducers({
     counterReducer : CounterReducer,
     miscReducer    : MiscReducer,
     // newTaskReducer : NewTaskReducer,
-    addTasks       : AddTasksSlice,
+    tasks          : AddTasksSlice,
 })
 
 const store = configureStore({
