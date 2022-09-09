@@ -8,7 +8,6 @@ export const MiscReducer = createSlice({
         usernameInput: "",
         taskTitle: "",
         taskDescription: "",
-        taskActive: false,
 
     },
     reducers: {
@@ -31,12 +30,9 @@ export const MiscReducer = createSlice({
             state.taskDescription = action.payload;
             // console.log(action);
         },
-        setTaskActive: (state, action) => {
-            state.taskActive = action.payload;
-        }
     },
 });
 
-export const { addTime, addHeader, addUsernameInput, addTaskTitle, addTaskDescription, setTaskActive,  } = MiscReducer.actions;
+export const { addTime, addHeader, addUsernameInput, addTaskTitle, addTaskDescription, } = MiscReducer.actions;
 
 export default MiscReducer.reducer

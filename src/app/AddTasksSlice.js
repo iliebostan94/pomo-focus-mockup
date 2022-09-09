@@ -13,7 +13,7 @@ const AddTasksSlice = createSlice({
       taskID: 2,
       taskTitle: "Test title 2",
       taskDescription: "Test desc 2",
-      taskActive: true,
+      taskActive: false,
       },
       {
       taskID: 3,
@@ -39,10 +39,12 @@ const AddTasksSlice = createSlice({
         },
 
         toggleActive: (state, action) => {
-          // console.log(state);
-          const index = state.findIndex( (task) => task.taskID === action.payload.taskID );
-          // console.log(index);
-          state[index].taskActive = action.payload.taskActive;
+          // const index = state.findIndex( (task) => task.taskID === action.payload.taskID );
+          // state[index].taskActive = action.payload.taskActive;
+
+          state.forEach((task) => 
+          task.taskID === action.payload.taskID ? task.taskActive = true : task.taskActive = false
+          );
 
         },
     },

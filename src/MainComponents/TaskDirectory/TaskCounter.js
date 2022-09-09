@@ -12,23 +12,16 @@ const TaskCounter = (props , taskCounterNotice ) => {
 
     const tasksStore = useSelector((state) => state.tasks);
 
-    // const validateTaskTitle = tasksStore.map((task) => (task.taskActive && task.taskTitle ? task.taskTitle : null) );
     const pullTaskTitle = tasksStore.map((task) => (task.taskActive && task.taskTitle ? task.taskTitle : null) );
 
     let stringifyTaskTitle = pullTaskTitle.toString().replace(/,/g, '');
     let validateTaskTitle = stringifyTaskTitle ? stringifyTaskTitle : null;
-    // const validateTaskTitle = tasksStore[1].taskActive && tasksStore[1].taskTitle ? tasksStore[1].taskTitle : null;
-    // console.log(validateTaskTitle);
-    
-
-    
 
     return (
         <div className='taskCounterWrapper'>
             <div>#1</div>
-            { <div>{ validateTaskTitle ?? props.taskCounterNotice }</div> }
-            {/* <p>{ validateTaskTitle }</p> */}
             {/* { if task active ? display task title : otherwise display props.taskCounterNotice } */}
+            { <div>{ validateTaskTitle ?? props.taskCounterNotice }</div> }
         </div>
     )
 }

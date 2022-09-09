@@ -1,8 +1,7 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { toggleActive } from '../../app/AddTasksSlice';
+import { setTasksToInactive, toggleActive } from '../../app/AddTasksSlice';
 
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import IconButton from '@mui/material/IconButton';
@@ -37,18 +36,15 @@ const SingleTaskUnit = ( props, taskID, taskTitle, taskDescription, taskActive  
   }
 
   const toggleBorderLeft = () => {
-    // setBorderLeftStyle(props.taskActive ? " " : "6px solid black");
     let taskID = props.taskID;
     let taskActive = props.taskActive;
         dispatch( 
-          toggleActive( { taskID: taskID , taskActive: !taskActive } )
+          toggleActive( { taskID: taskID , taskActive: taskActive } ),
         );
-        // console.log(props.taskID);
   }
 
   return (
 
-            // <div className='newTaskUnitWrapper' key={props.taskID} style={{ borderLeft: borderLeft }}  >
             <div className='newTaskUnitWrapper' key={props.taskID} style={{ borderLeft: props.taskActive ? "6px solid black" : " " }} >
                 {/* <div className="newTaskFirstRow" onClick={() => toggleBorderLeft()} > */}
                 <div className="newTaskFirstRow" onClick={() => onClickEvents() } >

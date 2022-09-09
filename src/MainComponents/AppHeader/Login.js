@@ -8,7 +8,6 @@ const Login = () => {
 
     const {usernameInput} = useSelector(state => state.miscReducer);
 
-    // console.log(usernameInput);
     const dispatch = useDispatch();
 
     const handleChange = (event) => {

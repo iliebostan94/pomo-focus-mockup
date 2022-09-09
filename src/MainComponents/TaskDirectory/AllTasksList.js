@@ -1,11 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+
 import SingleTaskUnit from './SingleTaskUnit';
 
 const AllTasksList = () => {
 
     const tasksStore = useSelector((state) => state.tasks);
-    // console.log(addTasks);
 
     return (
         <div className='all-tasks-wrapper'>
@@ -15,9 +15,6 @@ const AllTasksList = () => {
             ))}
         </div>
 
-        // <div className='all-tasks-wrapper'>
-        //     <SingleTaskUnit />
-        // </div>
     )
 }
 
