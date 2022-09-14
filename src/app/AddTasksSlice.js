@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { initialState } from "./NewTask.reducer";
 
 const AddTasksSlice = createSlice({
     name: 'AddTasksSlice',
@@ -13,7 +14,7 @@ const AddTasksSlice = createSlice({
       taskID: 2,
       taskTitle: "Test title 2",
       taskDescription: "Test desc 2",
-      taskActive: false,
+      taskActive: true,
       },
       {
       taskID: 3,
@@ -34,8 +35,6 @@ const AddTasksSlice = createSlice({
                 taskActive: action.payload.taskActive,
             };
             state.push(task);
-
-
         },
 
         toggleActive: (state, action) => {
@@ -45,13 +44,15 @@ const AddTasksSlice = createSlice({
           state.forEach((task) => 
           task.taskID === action.payload.taskID ? task.taskActive = true : task.taskActive = false
           );
+        },
 
+        deleteEmAll: (state, action) => {
+          return state.filter((task) => task.taskID !== action.payload.taskID );
         },
     },
 
-
 });
 
-export const { addTask, toggleActive } = AddTasksSlice.actions;
+export const { addTask, toggleActive, deleteEmAll } = AddTasksSlice.actions;
 
 export default AddTasksSlice.reducer;

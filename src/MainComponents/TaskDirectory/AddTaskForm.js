@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import TaskStyle from './TaskStyle.css';
 import SingleTaskUnit from './SingleTaskUnit';
 
-import { useSelector , useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addTaskTitle, addTaskDescription, } from '../../app/Misc.reducer';
 import  { addTask }  from '../../app/AddTasksSlice';
 

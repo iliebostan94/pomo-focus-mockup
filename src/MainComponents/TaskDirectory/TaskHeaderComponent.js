@@ -8,15 +8,14 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
-const options = [
-    'Atria',
-    'Callisto',
-    'Dione',
-    'Ganymede',
-  ];
-const ITEM_HEIGHT = 48;
-
 const TaskComponent = () => {
+
+    const options = [
+        'Atria',
+        'Callisto',
+        'Dione',
+      ];
+    const ITEM_HEIGHT = 48;
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -26,10 +25,6 @@ const TaskComponent = () => {
     const handleClose = () => {
       setAnchorEl(null);
     };
-
-    const addTask = (task) => {
-        console.log()
-    }
 
     return (
         <div className='taskWrapper'>

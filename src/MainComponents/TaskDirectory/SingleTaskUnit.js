@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { setTasksToInactive, toggleActive } from '../../app/AddTasksSlice';
+import { toggleActive, deleteEmAll } from '../../app/AddTasksSlice';
 
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import IconButton from '@mui/material/IconButton';
@@ -9,15 +9,20 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
-const options = [
-  'Titania',
-  'Triton',
-  'Umbriel',
-];
 
 const ITEM_HEIGHT = 24;
 
-const SingleTaskUnit = ( props, taskID, taskTitle, taskDescription, taskActive  ) => {
+const SingleTaskUnit = ( props, key, taskID, taskTitle, taskDescription, taskActive  ) => {
+
+  const dispatch = useDispatch();
+  
+  const options = [
+    'Titania',
+    'Triton',
+    'Umbriel',
+    <p className='m-0' onClick={() => deleteTaskFunc()}>Remove this task</p>
+
+  ];
 
   // menu functionality
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -28,8 +33,6 @@ const SingleTaskUnit = ( props, taskID, taskTitle, taskDescription, taskActive  
   const handleClose = () => {
     setAnchorEl(null);
   };
-
-  const dispatch = useDispatch();
 
   const onClickEvents = () => {
     toggleBorderLeft();
@@ -42,12 +45,20 @@ const SingleTaskUnit = ( props, taskID, taskTitle, taskDescription, taskActive  
           toggleActive( { taskID: taskID , taskActive: taskActive } ),
         );
   }
+  const deleteTaskFunc = () => {
+    let taskID = props.taskID;
+    alert("Are you sure you want to remove this task?");
+    dispatch(
+      deleteEmAll({ taskID : taskID }),
+    )
+  
+  }
 
   return (
 
-            <div className='newTaskUnitWrapper' key={props.taskID} style={{ borderLeft: props.taskActive ? "6px solid black" : " " }} >
+            <div className='newTaskUnitWrapper' key={props.taskID} style={{ borderLeft: props.taskActive ? "6px solid black" : " " }} onClick={() => onClickEvents() } >
                 {/* <div className="newTaskFirstRow" onClick={() => toggleBorderLeft()} > */}
-                <div className="newTaskFirstRow" onClick={() => onClickEvents() } >
+                <div className="newTaskFirstRow"  >
                     <div className='newTaskIcon'> <CheckCircleIcon /> </div>
                     <div className="newTaskTitle"> {props.taskTitle} </div>
                     <div className="newTaskSettings"> 
