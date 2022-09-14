@@ -24,7 +24,6 @@ const AddTasksSlice = createSlice({
       },
     ],
 
-
     reducers: {
         addTask: (state, action) => {
         // console.log(state, action);
@@ -46,13 +45,18 @@ const AddTasksSlice = createSlice({
           );
         },
 
-        deleteEmAll: (state, action) => {
+        removeTask: (state, action) => {
           return state.filter((task) => task.taskID !== action.payload.taskID );
         },
+
+        deleteEmAll: () => {
+          return initialState;
+        },
+
     },
 
 });
 
-export const { addTask, toggleActive, deleteEmAll } = AddTasksSlice.actions;
+export const { addTask, toggleActive, removeTask, deleteEmAll, } = AddTasksSlice.actions;
 
 export default AddTasksSlice.reducer;

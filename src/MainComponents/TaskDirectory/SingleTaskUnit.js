@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { toggleActive, deleteEmAll } from '../../app/AddTasksSlice';
+import { toggleActive, removeTask } from '../../app/AddTasksSlice';
 
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import IconButton from '@mui/material/IconButton';
@@ -47,9 +47,8 @@ const SingleTaskUnit = ( props, key, taskID, taskTitle, taskDescription, taskAct
   }
   const deleteTaskFunc = () => {
     let taskID = props.taskID;
-    alert("Are you sure you want to remove this task?");
     dispatch(
-      deleteEmAll({ taskID : taskID }),
+      removeTask({ taskID : taskID }),
     )
   
   }

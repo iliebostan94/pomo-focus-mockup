@@ -1,16 +1,12 @@
 import React from 'react'
-import { useState, useEffect } from 'react';
 import { useSelector , useDispatch } from 'react-redux';
 
-import HomePage from '../HomePage';
-import HomeCounter from '../HomeCounter/HomeCounter';
 import TaskStyle from '../TaskDirectory/TaskStyle.css';
-import setTaskActive from '../../app/Misc.reducer';
-
 
 const TaskCounter = (props , taskCounterNotice ) => {
 
     const tasksStore = useSelector((state) => state.tasks);
+    const taskID = tasksStore.taskID;
 
     const pullTaskTitle = tasksStore.map((task) => (task.taskActive && task.taskTitle ? task.taskTitle : null) );
 

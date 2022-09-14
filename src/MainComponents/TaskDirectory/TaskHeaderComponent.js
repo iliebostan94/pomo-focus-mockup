@@ -3,17 +3,25 @@ import AddTaskForm from './AddTaskForm';
 import TaskStyle from './TaskStyle.css';
 import AllTasksList from './AllTasksList';
 
+import { useSelector, useDispatch } from 'react-redux';
+import {  deleteEmAll } from '../../app/AddTasksSlice';
+
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 const TaskComponent = () => {
+    const tasksStore = useSelector((state) => state.tasks);
+    const dispatch = useDispatch();
+    // console.log(tasksStore);
 
     const options = [
         'Atria',
         'Callisto',
         'Dione',
+        <p className='m-0' onClick={() => deleteEmAllFunc()}>Delete all tasks</p>
+
       ];
     const ITEM_HEIGHT = 48;
 
@@ -25,6 +33,13 @@ const TaskComponent = () => {
     const handleClose = () => {
       setAnchorEl(null);
     };
+
+    const deleteEmAllFunc = () => {
+    alert("Are you sure you want to remove all tasks?");
+        dispatch( 
+            deleteEmAll(),
+          );
+    }
 
     return (
         <div className='taskWrapper'>
